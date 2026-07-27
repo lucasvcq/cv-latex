@@ -1,0 +1,30 @@
+.DS_Store
+#Fichier auxiliaires Latex
+*.sty
+*.sty.gz
+*.sty.bz2
+*.sty.bz2.gz
+*.sty.xz
+*.sty.xz.gz
+*.sty.zst
+*.sty.zst.gz
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.fls.gz
+*.fdb_latexmk.gz
+*.bbl.gz
+*.blg.gz
+
+#Dossier avec les photos du CV
+Photos/

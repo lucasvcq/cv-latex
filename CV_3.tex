@@ -1,0 +1,392 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{xcolor}
+\usepackage{PTSans}
+\usepackage{fontspec}
+\usepackage{ragged2e}
+\usepackage{enumitem}
+
+\pagestyle{empty}
+
+% Note : Assure-toi que le dossier 'Oswald' est bien au même endroit que ton fichier .tex
+\newfontfamily\customoswald[LetterSpace=3.0]{Oswald-Regular}[
+    Path = Oswald/, 
+    Extension = .ttf,
+]
+
+\newfontfamily\ptsans{PT Sans}
+\newfontfamily\ptsansbold{PT Sans Bold}
+\newfontfamily\ptsansespace[LetterSpace=10.0]{PT Sans}
+\newfontfamily\ptsansboldespace[LetterSpace=4.0]{PT Sans Bold}
+
+\begin{document}
+
+\definecolor{bleu_foncee}{RGB}{42,89,120}
+\definecolor{bleu_clair}{RGB}{223,230,235}
+\definecolor{blanc_creme}{RGB}{238,240,241}
+\definecolor{gris_foncee}{RGB}{70,70,78}
+
+% --- RÉGLAGE DES ESPACES (ÉQUILIBRÉ) ---
+\newcommand{\gapNom}{-0.12cm}
+\newcommand{\gapTitle}{0.08cm} 
+\newcommand{\gapTextToTitle}{0.35cm} % Remis un peu plus large
+\newcommand{\gapTextToTitleGauche}{0.35cm}
+\newcommand{\gapTextToSub}{0.12cm}   % Remis un peu plus large
+
+\begin{tikzpicture}[remember picture, overlay]
+
+    % --- FOND DE PAGE ---
+    \fill[bleu_clair] (-5.5cm,1.24cm) rectangle ++(8.44cm,-27cm);
+    \fill[bleu_clair] (-5.5cm,1.24cm) rectangle ++(22cm,-0.365cm);
+    \fill[bleu_foncee] (current page.north west) rectangle ++(22cm, -3.27cm);
+    \fill[bleu_foncee] (-5.5cm,1.24cm) rectangle ++(22cm, 0.13cm);
+
+    % --- NOM ET TITRE ---
+    \coordinate (NOM) at (2.8cm,4.515cm);
+
+    \node[anchor=north west, align=left,font=\customoswald\fontsize{31}{15}\selectfont, text=blanc_creme] (NOM_2) at (NOM) {
+        LUCAS VACQUIÉ
+    };
+    
+    \coordinate (secondLine) at ($(NOM_2.south west) + (0, -\gapNom)$);
+
+    \node[anchor=north west, align=left,font=\ptsansespace\fontsize{15}{15}\selectfont, text=blanc_creme] at (secondLine) {
+        ÉLÈVE-INGÉNIEUR GÉNÉRALISTE - 4ème ANNÉE
+    };
+
+    % --- RUBRIQUE PROFIL (Ciblé MBDA) ---
+    \coordinate (first_title) at (3.87cm,0cm);
+
+    \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (first_title_2) at (first_title) {
+        PROFIL
+    };
+
+    \coordinate (first_paragraphe) at ($(first_title_2.south west) + (0.5cm, -\gapTitle)$);
+
+    \node[anchor=north west,text width=10.9cm, align=justify,font=\ptsans\fontsize{9}{11}\selectfont, text=gris_foncee] (first_paragraphe_2) at (first_paragraphe) {
+        Futur ingénieur généraliste passionné par les systèmes complexes et l'aéronautique, je recherche un stage de fin d'études en Ingénierie Système. Fort d'une double compétence en algorithmie (Python/Matlab) et en électronique embarquée, je souhaite m'investir dans la conception et la validation de fonctions opérationnelles (trajectoire/mission).
+    };
+
+    % --- RUBRIQUE EXPÉRIENCE ---
+    \coordinate (second_title) at ($(first_paragraphe_2.south west) + (-0.5cm, -\gapTextToTitle)$);
+
+    \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (second_title_2) at (second_title) {
+        EXPÉRIENCE
+    };
+
+    % 1. MICROTEC
+    \coordinate (exp_micro_sub) at ($(second_title_2.south west) + (0.5cm, -\gapTitle)$);
+    
+    \node[anchor=north west, align=justify,font=\ptsansbold\fontsize{10}{8}\selectfont] (exp_micro_sub_2) at (exp_micro_sub) {
+        Assistant Ingénieur (Stage)\\
+        Microtec
+        \ptsans - Ramonville
+    };
+
+    \coordinate (exp_micro_desc) at ($(exp_micro_sub_2.south west) + (0cm, 0.05cm)$);
+    
+    \node[anchor=north west, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (exp_micro_desc_2) at (exp_micro_desc) {
+        \textbullet\ \textbf{Conception d'un outil d'analyse sous Excel (VBA)} pour la qualification par similarité \\
+        \textbullet\ Implémentation des règles normatives pour valider les composants par héritage \\
+        \textbullet\ Création d'une interface utilisateur intuitive intégrée à l'environnement bureau \\ d'études
+    };
+
+    % 2. PLIAGE MÉTAL
+    \coordinate (exp_pliage_sub) at ($(exp_micro_desc_2.south west) + (0cm, -\gapTextToSub)$);
+    
+    \node[anchor=north west, align=justify,font=\ptsansbold\fontsize{10}{8}\selectfont] (exp_pliage_sub_2) at (exp_pliage_sub) {
+        Opérateur de Production (Stage Ouvrier)\\
+        Pliage Métal
+        \ptsans - Montrabé
+    };
+
+    \coordinate (exp_pliage_desc) at ($(exp_pliage_sub_2.south west) + (0cm, 0.05cm)$);
+
+    \node[anchor=north west, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (exp_pliage_desc_2) at (exp_pliage_desc) {
+        \textbullet\ Travail sur machines de précision et respect des processus industriels\\
+        \textbullet\ Immersion en atelier de production et respect des normes de sécurité
+    };
+
+    % --- RUBRIQUE ENGAGEMENT ASSOCIATIF ---
+    \coordinate (asso_title) at ($(exp_pliage_desc_2.south west) + (-0.5cm, -\gapTextToTitle)$);
+
+    \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (asso_title_2) at (asso_title) {
+        ENGAGEMENT ASSOCIATIF
+    };
+
+    % 3. HANDBALL
+    \coordinate (asso_hand_sub) at ($(asso_title_2.south west) + (0.5cm, -\gapTitle)$);
+
+    \node[anchor=north west, align=justify,font=\ptsansbold\fontsize{10}{10}\selectfont] (asso_hand_sub_2) at (asso_hand_sub) {
+        Entraîneur \& Arbitre\\
+        ASU Handball
+        \ptsans - L'Union
+    };
+    
+    \coordinate (asso_hand_desc) at ($(asso_hand_sub_2.south west) + (0cm, 0.05cm)$);
+
+    \node[anchor=north west, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (asso_hand_desc_2) at (asso_hand_desc) {
+        \textbullet\ Encadrement de jeunes joueurs, organisation de tournois et arbitrage
+    };
+
+    % 4. BÉNÉVOLE
+    \coordinate (asso_benevole_sub) at ($(asso_hand_desc_2.south west) + (0cm, -\gapTextToSub)$);
+
+    \node[anchor=north west, align=justify,font=\ptsansbold\fontsize{10}{10}\selectfont] (asso_benevole_sub_2) at (asso_benevole_sub) {
+        Bénévole\\
+        Voir et Comprendre
+        \ptsans - Toulouse
+    };
+    
+    \coordinate (asso_benevole_desc) at ($(asso_benevole_sub_2.south west) + (0cm, 0.05cm)$);
+
+    \node[anchor=north west, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (asso_benevole_desc_2) at (asso_benevole_desc) {
+        \textbullet\ Accompagnement scolaire de collégiens et lycéens (quartier Reynerie)
+    };
+
+    % --- RUBRIQUE FORMATION ---
+    \coordinate (formation_title) at ($(asso_benevole_desc_2.south west) + (-0.5cm, -\gapTextToTitle)$);
+
+    \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (formation_title_2) at (formation_title) {
+        FORMATION
+    };
+    
+    \coordinate (form_icam) at ($(formation_title_2.south west) + (0.5cm, -\gapTitle)$);
+
+    \node[anchor=north west, align=justify,font=\ptsans\fontsize{10}{12}\selectfont] (form_icam_2) at (form_icam) {
+        4ème Année - Cycle Ingénieur Généraliste, 09/2024 – Diplôme prévu en 2027\\
+        \ptsansbold ICAM
+        - Toulouse \ptsans (Classes prépas intégrées PTSI-PT)
+    };
+
+    \coordinate (form_bac) at ($(form_icam_2.south west) + (0cm, -0.1cm)$);
+
+    \node[anchor=north west, align=justify,font=\ptsansbold\fontsize{10}{12}\selectfont] (form_bac_2) at (form_bac) {
+        Baccalauréat Scientifique (Maths/Physique), 2022\\
+        Lycée Raymond Naves
+        \ptsans - Toulouse - Mention Bien
+    };
+
+    % --- RUBRIQUE PROJETS RÉALISÉS (4 PROJETS) ---
+    \coordinate (projets_title) at ($(form_bac_2.south west) + (-0.5cm, -\gapTextToTitle)$);
+
+    \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (projets_title_2) at (projets_title) {
+        PROJETS RÉALISÉS
+    };
+
+    % Projet Satellite
+    \coordinate (proj_sat) at ($(projets_title_2.south west) + (0.5cm, -\gapTitle)$);
+
+    \node[anchor=north west,text width=10.4cm, align=justify,font=\ptsansbold\fontsize{9}{10.5}\selectfont,text=gris_foncee] (proj_sat_2) at (proj_sat) {
+        \begin{minipage}{\linewidth}
+            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
+                \item Système Satellitaire (Architecture Complexe) - Équipe de 25 :
+                \ptsans Conception système d'éjection et prise de vue. Développement de la logique de contrôle et programmation des capteurs (Arduino/ESP32).
+            \end{itemize}
+        \end{minipage}
+    };
+
+    % Projet BB8 (Matlab)
+    \coordinate (proj_bb8) at ($(proj_sat_2.south west) + (0cm, -0.05cm)$);
+
+    \node[anchor=north west, text width=10.4cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_bb8_2) at (proj_bb8) {
+        \begin{minipage}{\textwidth}
+            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
+                \item Robot Sphérique BB8 (Équipe de 6) :
+                \ptsans Modélisation sous \textbf{Matlab}. Conception électronique et développement de l'asservissement PID et programmation en C++.
+            \end{itemize}
+        \end{minipage}
+    };
+    
+    % Projet Nuit ICAM
+    \coordinate (proj_icam) at ($(proj_bb8_2.south west) + (0cm, -0.05cm)$);
+
+    \node[anchor=north west, text width=10.4cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_icam_2) at (proj_icam) {
+        \begin{minipage}{\textwidth}
+            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
+                \item Organisation Nuit ICAM (Gala 1800 pers.) - Pôle Logistique :
+                \ptsans Coordination d'une équipe de 80 personnes. Gestion des installations techniques (plan électrique, structures) et supervision opérationnelle.
+            \end{itemize}
+        \end{minipage}
+    };
+
+    % Projet Expériment
+    \coordinate (proj_exp) at ($(proj_icam_2.south west) + (0cm, -0.05cm)$);
+
+    \node[anchor=north west, text width=10.4cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_exp_2) at (proj_exp) {
+        \begin{minipage}{\textwidth}
+            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
+                \item "Expériment" - Mobilité Internationale (4 mois, Asie) :
+                \ptsans Immersion en autonomie au Cambodge et en Malaisie. 1 mois de bénévolat dans une école et développement de l'adaptabilité interculturelle.
+            \end{itemize}
+        \end{minipage}
+    };
+
+
+    %%% FIN PARTIE DROITE DE LA FEUILLE %%%
+
+    %%% DÉBUT PARTIE GAUCHE (Colonne Bleue) %%%
+
+    \coordinate (photo) at (-3.7cm,4.23cm);
+    \node [anchor=north west, align=left] (photo_2) at (photo) {\includegraphics[width=4.2cm]{Photos/Photo_CV.jpg}};
+    
+    \coordinate (first_title_G) at (-4.3cm,-1.8cm);
+    \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (first_title_G_2) at (first_title_G) {
+        COORDONNÉES
+    };
+
+    \coordinate (first_image) at ($(first_title_G_2.south west) + (0.45cm, -\gapTitle)$);
+    \node [anchor=north west, align=left] (first_image_2) at (first_image) {\includegraphics[width=0.4cm]{Pictogramme/localisateur.png}};
+
+    \coordinate (adresse) at ($(first_image_2.north east) + (0cm, -0.1cm)$);
+    \node[anchor=north west, align=left,font=\ptsans\fontsize{9}{15}\selectfont] at (adresse) {
+        55 rue de l'autan blanc, 31240 L'Union
+    };
+
+    \coordinate (second_image) at (first_image_2.south west);
+    \node [anchor=north west, align=left] (second_image_2) at (second_image) {\includegraphics[width=0.4cm]{Pictogramme/telephone.png}};
+
+    \coordinate (telephone) at ($(second_image_2.north east) + (0cm, -0.1cm)$);
+    \node[anchor=north west, align=left,font=\ptsans\fontsize{9}{15}\selectfont] at (telephone) {
+        07 60 50 44 16
+    };
+
+    \coordinate (thrid_image) at (second_image_2.south west);
+    \node [anchor=north west, align=left] (thrid_image_2) at (thrid_image) {\includegraphics[width=0.4cm]{Pictogramme/envoyer-le-symbole.png}};
+
+    \coordinate (mail) at ($(thrid_image_2.north east) + (0cm, -0.1cm)$);
+    \node[anchor=north west, align=left,font=\ptsans\fontsize{9}{15}\selectfont] at (mail) {
+        lucas.vacquie@icloud.com
+    };
+
+    \coordinate (fourth_image) at (thrid_image_2.south west);
+    \node [anchor=north west, align=left] (fourth_image_2) at (fourth_image) {\includegraphics[width=0.4cm]{Pictogramme/gateau.png}};
+
+    \coordinate (age) at ($(fourth_image_2.north east) + (0cm, -0.1cm)$);
+    \node[anchor=north west, align=left,font=\ptsans\fontsize{9}{15}\selectfont] at (age) {
+        21 ans
+    };
+
+    \coordinate (fifth_image) at (fourth_image_2.south west);
+    \node [anchor=north west, align=left] (fifth_image_2) at (fifth_image) {\includegraphics[width=0.4cm]{Pictogramme/voiture-de-sport.png}};
+
+    \coordinate (permis) at ($(fifth_image_2.north east) + (0cm, -0.1cm)$);
+    \node[anchor=north west, align=left,font=\ptsans\fontsize{9}{15}\selectfont] at (permis) {
+        Permis B avec voiture
+    };
+
+    % --- COMPÉTENCES ---
+    \coordinate (second_title_G) at ($(fifth_image_2.south west) + (-0.45cm, -\gapTextToTitleGauche)$);
+    \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (second_title_G_2) at (second_title_G) {
+        COMPÉTENCES
+    };
+
+    \coordinate (first_paragraphe_G) at ($(second_title_G_2.south west) + (0.45cm, -\gapTitle)$);
+    \node[anchor=north west,text width=6cm, align=justify,font=\ptsans\fontsize{9}{5}\selectfont,text=gris_foncee] (first_paragraphe_G_2) at (first_paragraphe_G) {
+        \begin{minipage}{\linewidth}
+            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.1em, align=left, label=\textbullet]
+                \item Analyse Système
+                \item Rigueur Scientifique
+                \item Esprit d'équipe
+                \item Adaptabilité
+                \item Polyvalence
+                \item Gestion de projet
+            \end{itemize}
+        \end{minipage}
+    };
+
+    % --- LANGUES ---
+    \coordinate (thrid_title_G) at ($(first_paragraphe_G_2.south west) + (-0.45cm, -\gapTextToTitleGauche)$);
+    \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (thrid_title_G_2) at (thrid_title_G) {
+        LANGUES
+    };
+
+    \coordinate (first_language) at ($(thrid_title_G_2.south west) + (0.45cm, -\gapTitle)$);
+    \node[anchor=north west, align=left,font=\ptsansbold\fontsize{9}{15}\selectfont,text=gris_foncee] (first_language_2) at (first_language) {
+        Français
+    };
+
+    \coordinate (first_graph_bot) at ($(first_language_2.south west) + (0.12cm, 0.05cm)$);
+    \coordinate (first_graph_top) at ($(first_language_2.south west) + (6.12cm, -0.1cm)$);
+    \draw[fill=white, draw=none] (first_graph_bot) rectangle (first_graph_top);
+    \draw[fill=bleu_foncee, draw=none] (first_graph_bot) rectangle (first_graph_top); 
+
+    \coordinate (first_level) at ($(first_language_2.south west) + (0cm, -0.05cm)$);
+    \node[anchor=north west, align=left,font=\ptsans\fontsize{9}{15}\selectfont,text=gris_foncee] (first_level_2) at (first_level) {
+        Langue maternelle
+    };
+
+    \coordinate (second_language) at ($(first_level_2.south west) + (0cm, 0cm)$);
+    \node[anchor=north west, align=left,font=\ptsansbold\fontsize{9}{15}\selectfont,text=gris_foncee] (second_language_2) at (second_language) {
+        Anglais
+    };
+
+    \coordinate (second_graph_bot) at ($(second_language_2.south west) + (0.12cm, 0.05cm)$);
+    \coordinate (second_graph_top) at ($(second_language_2.south west) + (6.12cm, -0.1cm)$);
+    \coordinate (second_graph_top_2) at ($(second_language_2.south west) + (4.32cm, -0.1cm)$);
+    \draw[fill=white, draw=none] (second_graph_bot) rectangle (second_graph_top);
+    \draw[fill=bleu_foncee, draw=none] (second_graph_bot) rectangle (second_graph_top_2);
+
+    \coordinate (second_level) at ($(second_language_2.south west) + (0cm, -0.05cm)$);
+    \node[anchor=north west, align=left,font=\ptsans\fontsize{9}{15}\selectfont,text=gris_foncee] (second_level_2) at (second_level) {
+        Certification Cambridge Niveau B2 - 05/2024
+    };
+
+    \coordinate (thrid_language) at ($(second_level_2.south west) + (0cm, 0cm)$);
+    \node[anchor=north west, align=left, font=\ptsansbold\fontsize{9}{15}\selectfont,text=gris_foncee] (thrid_language_2) at (thrid_language) {
+        Espagnol
+    };
+
+    \coordinate (thrid_graph_bot) at ($(thrid_language_2.south west) + (0.12cm, 0.05cm)$);
+    \coordinate (thrid_graph_top) at ($(thrid_language_2.south west) + (6.12cm, -0.1cm)$);
+    \coordinate (thrid_graph_top_2) at ($(thrid_language_2.south west) + (2.12cm, -0.1cm)$);
+    \draw[fill=white, draw=none] (thrid_graph_bot) rectangle (thrid_graph_top);
+    \draw[fill=bleu_foncee, draw=none] (thrid_graph_bot) rectangle (thrid_graph_top_2);
+
+    \coordinate (thrid_level) at ($(thrid_language_2.south west) + (0cm, -0.05cm)$);
+    \node[anchor=north west, align=left,font=\ptsans\fontsize{9}{15}\selectfont,text=gris_foncee] (thrid_level_2) at (thrid_level) {
+        Notions
+    };
+
+    % --- CENTRES D'INTÉRÊT ---
+    \coordinate (fourth_title_G) at ($(thrid_level_2.south west) + (-0.45cm, -\gapTextToTitleGauche)$);
+    \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (fourth_title_G_2) at (fourth_title_G) {
+        CENTRES D'INTÉRÊT
+    };
+
+    \coordinate (second_paragraphe_G) at ($(fourth_title_G_2.south west) + (0.45cm, -\gapTitle)$);
+    \node[anchor=north west,text width=6cm, align=justify,font=\ptsans\fontsize{9}{5}\selectfont,text=gris_foncee] (second_paragraphe_G_2) at (second_paragraphe_G) {
+        \begin{minipage}{\linewidth}
+            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.1em, align=left, label=\textbullet]
+                \item Handball (Compétition)
+                \item Musique
+                \item Informatique / Hardware
+            \end{itemize}
+        \end{minipage}
+    };
+
+    % --- LOGICIELS ET LANGAGES ---
+    \coordinate (fifth_title_G) at ($(second_paragraphe_G_2.south west) + (-0.45cm, -\gapTextToTitleGauche)$);
+    \node[anchor=north west, text width=6cm, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (fifth_title_G_2) at (fifth_title_G) {
+        LANGAGES ET \mbox{MODÉLISATIONS} \mbox{INFORMATIQUES}
+    };
+
+    \coordinate (thrid_paragraphe_G) at ($(fifth_title_G_2.south west) + (0.45cm, -\gapTitle)$);
+    \node[anchor=north west,text width=6cm, align=justify,font=\ptsans\fontsize{9}{5}\selectfont,text=gris_foncee] (thrid_paragraphe_G_2) at (thrid_paragraphe_G) {
+        \begin{minipage}{\linewidth}
+            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.1em, align=left, label=\textbullet]
+                \item \textbf{Matlab / Simulink}
+                \item Python (Algorithmie)
+                \item C / C++ (Embarqué)
+                \item VBA Excel
+                \item Arduino / ESP32
+                \item \LaTeX
+                \item SolidWorks
+            \end{itemize}
+        \end{minipage}
+    };
+
+\end{tikzpicture}
+
+\end{document}
