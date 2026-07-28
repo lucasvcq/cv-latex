@@ -39,8 +39,20 @@
 \newcommand{\gapTextToTitleGauche}{0.35cm}
 \newcommand{\gapTextToSub}{0.12cm}   % Remis un peu plus large
 
+% --- HELPER DE CHAÎNAGE ---
+% \chainNext{nom_coord}{noeud_precedent}{ecart} : place (nom_coord) à x=0 sous
+% (noeud_precedent.south west), décalé vers le bas de {ecart}. Utilisé pour
+% enchaîner les blocs d'une même rubrique sans répéter la formule à la main.
+\newcommand{\chainNext}[3]{\coordinate (#1) at ($(#2.south west) + (0cm, -#3)$);}
+
 % --- BANQUE DE CONTENUS (expériences / engagements / projets) ---
 \input{cv_banque_contenus.tex}
+
+% --- SÉLECTION POUR CETTE CANDIDATURE ---
+% Pour changer d'offre : ne modifie QUE cette ligne (pointe vers un autre
+% fichier selection_xxx.tex). Le layout ci-dessous n'a plus besoin d'être
+% touché.
+\input{selection_classique.tex}
 
 \begin{tikzpicture}[remember picture, overlay]
 
@@ -63,7 +75,7 @@
         ÉLÈVE-INGÉNIEUR GÉNÉRALISTE - 5ème ANNÉE
     };
 
-    % --- RUBRIQUE PROFIL (Ciblé MBDA) ---
+    % --- RUBRIQUE PROFIL ---
     \coordinate (first_title) at (3.87cm,0.5cm);
 
     \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (first_title_2) at (first_title) {
@@ -91,16 +103,9 @@
         EXPÉRIENCE
     };
 
-    % --- SÉLECTION EXPÉRIENCE (édite ici selon la candidature) ---
+    % --- SÉLECTION EXPÉRIENCE : définie dans selection_xxx.tex ---
     \coordinate (exp_pos) at ($(second_title_2.south west) + (0.5cm, -\gapTitle)$);
-    \expMicrotec{exp_pos}
-
-    \coordinate (exp_pos) at ($(exp_last.south west) + (0cm, -\gapTextToSub)$);
-    \expPliageMetal{exp_pos}
-
-    % \coordinate (exp_pos) at ($(exp_last.south west) + (0cm, -\gapTextToSub)$);
-    % \expGabarit{exp_pos}
-    % --- FIN SÉLECTION EXPÉRIENCE ---
+    \SelectionExperience
 
     % ==================================================================
     % --- RUBRIQUE ENGAGEMENT ASSOCIATIF ---
@@ -113,16 +118,9 @@
         ENGAGEMENT ASSOCIATIF
     };
 
-    % --- SÉLECTION ENGAGEMENT ASSOCIATIF (édite ici selon la candidature) ---
+    % --- SÉLECTION ENGAGEMENT ASSOCIATIF : définie dans selection_xxx.tex ---
     \coordinate (asso_pos) at ($(asso_title_2.south west) + (0.5cm, -\gapTitle)$);
-    \assoHandball{asso_pos}
-
-    \coordinate (asso_pos) at ($(asso_last.south west) + (0cm, -\gapTextToSub)$);
-    \assoBenevole{asso_pos}
-
-    % \coordinate (asso_pos) at ($(asso_last.south west) + (0cm, -\gapTextToSub)$);
-    % \assoGabarit{asso_pos}
-    % --- FIN SÉLECTION ENGAGEMENT ASSOCIATIF ---
+    \SelectionAssociatif
 
     % --- RUBRIQUE FORMATION ---
     \coordinate (formation_title) at ($(asso_last.south west) + (-0.5cm, -\gapTextToTitle)$);
@@ -165,30 +163,9 @@
         PROJETS RÉALISÉS
     };
 
-    % --- SÉLECTION PROJETS (édite ici selon la candidature) ---
+    % --- SÉLECTION PROJETS : définie dans selection_xxx.tex ---
     \coordinate (proj_pos) at ($(projets_title_2.south west) + (0.5cm, -\gapTitle)$);
-    \projBrasRobotique{proj_pos}
-
-    \coordinate (proj_pos) at ($(proj_last.south west) + (0cm, -0.05cm)$);
-    \projNuitICAM{proj_pos}
-
-    \coordinate (proj_pos) at ($(proj_last.south west) + (0cm, -0.05cm)$);
-    \projSatellite{proj_pos}
-
-    \coordinate (proj_pos) at ($(proj_last.south west) + (0cm, -0.05cm)$);
-    \projBBEight{proj_pos}
-
-    % Variantes disponibles, à activer selon l'offre (décommenter + adapter
-    % l'ordre / les autres lignes ci-dessus si besoin) :
-    % \coordinate (proj_pos) at ($(proj_last.south west) + (0cm, -0.05cm)$);
-    % \projQueueIA{proj_pos}
-    % \coordinate (proj_pos) at ($(proj_last.south west) + (0cm, -0.05cm)$);
-    % \projSoccerKit{proj_pos}
-    % \coordinate (proj_pos) at ($(proj_last.south west) + (0cm, -0.05cm)$);
-    % \projNuitICAM{proj_pos}
-    % \coordinate (proj_pos) at ($(proj_last.south west) + (0cm, -0.05cm)$);
-    % \projExperiment{proj_pos}
-    % --- FIN SÉLECTION PROJETS ---
+    \SelectionProjets
 
 
     %%% FIN PARTIE DROITE DE LA FEUILLE %%%
@@ -276,8 +253,10 @@
     \node[anchor=north west,text width=6cm, align=justify,font=\ptsans\fontsize{9}{5}\selectfont,text=gris_foncee] (first_paragraphe_G_2) at (first_paragraphe_G) {
         \begin{minipage}{\linewidth}
             \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.1em, align=left, label=\textbullet]
+                \item Analyse Système
                 \item Rigueur Scientifique
                 \item Esprit d'équipe
+                %\item Adaptabilité
                 \item Polyvalence
                 \item Gestion de projet
             \end{itemize}
@@ -290,6 +269,7 @@
         LANGUES
     };
 
+    % Français
     \coordinate (first_language) at ($(thrid_title_G_2.south west) + (0.45cm, -\gapTitle)$);
     \node[anchor=north west, align=left,font=\ptsansbold\fontsize{9}{15}\selectfont,text=gris_foncee] (first_language_2) at (first_language) {
         Français
@@ -305,6 +285,7 @@
         Langue maternelle
     };
 
+    % Anglais
     \coordinate (second_language) at ($(first_level_2.south west) + (0cm, 0cm)$);
     \node[anchor=north west, align=left,font=\ptsansbold\fontsize{9}{15}\selectfont,text=gris_foncee] (second_language_2) at (second_language) {
         Anglais
@@ -321,6 +302,7 @@
         Certification Cambridge Niveau B2 - 05/2024
     };
 
+    % Espagnol
     \coordinate (thrid_language) at ($(second_level_2.south west) + (0cm, 0cm)$);
     \node[anchor=north west, align=left, font=\ptsansbold\fontsize{9}{15}\selectfont,text=gris_foncee] (thrid_language_2) at (thrid_language) {
         Espagnol
@@ -372,7 +354,7 @@
                 \item Arduino / ESP32
                 \item \LaTeX
                 \item SolidWorks / CAO
-                \item ROS2 / RoboDK
+                %\item ROS2 / RoboDK
                 %\item Linux (Ubuntu) / Bash
                 %\item SQL / MySQL
                 %\item VBA Excel

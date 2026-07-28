@@ -1,0 +1,48 @@
+% ======================================================================
+% SÉLECTION DE CONTENUS — Candidature type "Ingénierie Système"
+% ======================================================================
+% Ce fichier NE CONTIENT AUCUNE MISE EN PAGE. Il choisit juste, parmi les
+% macros de cv_banque_contenus.tex, lesquelles afficher et dans quel ordre,
+% pour CETTE candidature.
+%
+% Pour une autre offre : duplique ce fichier (ex: selection_thales.tex),
+% modifie les 3 macros ci-dessous, puis change la ligne \input{...} dans
+% cv_lucas_vacquie.tex pour pointer vers le nouveau fichier. Le layout
+% principal n'a jamais besoin d'être touché.
+%
+% Rappel des blocs disponibles dans la banque :
+%   Expérience : \expMicrotec \expPliageMetal \expGabarit
+%   Associatif : \assoHandball \assoBenevole \assoGabarit
+%   Projets    : \projBrasRobotique \projBuckConverter \projSatellite
+%                \projBBEight \projQueueIA \projSoccerKit \projAppMobileAsso
+%                \projNuitICAM \projExperiment \projGabarit
+%
+% Convention : chaque macro de sélection suppose qu'une coordonnée de départ
+% (exp_pos / asso_pos / proj_pos) a déjà été positionnée par le CV principal
+% juste avant l'appel (sous le titre de la rubrique).
+% ======================================================================
+
+% --- EXPÉRIENCE ---
+\newcommand{\SelectionExperience}{%
+    \expMicrotec{exp_pos}
+    \chainNext{exp_pos}{exp_last}{\gapTextToSub}
+    \expPliageMetal{exp_pos}
+}
+
+% --- ENGAGEMENT ASSOCIATIF ---
+\newcommand{\SelectionAssociatif}{%
+    \assoHandball{asso_pos}
+    \chainNext{asso_pos}{asso_last}{\gapTextToSub}
+    \assoBenevole{asso_pos}
+}
+
+% --- PROJETS RÉALISÉS ---
+\newcommand{\SelectionProjets}{%
+    \projBrasRobotique{proj_pos}
+    \chainNext{proj_pos}{proj_last}{0.05cm}
+    \projNuitICAM{proj_pos}
+    \chainNext{proj_pos}{proj_last}{0.05cm}
+    \projSatellite{proj_pos}
+    \chainNext{proj_pos}{proj_last}{0.05cm}
+    \projBBEight{proj_pos}
+}
