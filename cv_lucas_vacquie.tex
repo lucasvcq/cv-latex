@@ -30,8 +30,8 @@
 % --- RÉGLAGE DES ESPACES (ÉQUILIBRÉ) ---
 \newcommand{\gapNom}{-0.12cm}
 \newcommand{\gapTitle}{0.08cm} 
-\newcommand{\gapTextToTitle}{0.35cm} % Remis un peu plus large
-\newcommand{\gapTextToTitleGauche}{0.35cm}
+\newcommand{\gapTextToTitle}{0.30cm} % Remis un peu plus large
+\newcommand{\gapTextToTitleGauche}{0.30cm}
 \newcommand{\gapTextToSub}{0.12cm}   % Remis un peu plus large
 
 % --- BANQUE DE CONTENUS (expériences / engagements / projets) ---
@@ -238,8 +238,26 @@
         Permis B avec voiture
     };
 
+    % --- Ajout LinkedIn ---
+    \coordinate (sixth_image) at (fifth_image_2.south west);
+    \node [anchor=north west, align=left] (sixth_image_2) at (sixth_image) {\includegraphics[width=0.4cm]{Pictogramme/linkedin.png}};
+
+    \coordinate (linkedin) at ($(sixth_image_2.north east) + (0cm, -0.1cm)$);
+    \node[anchor=north west, align=left,font=\ptsans\fontsize{9}{15}\selectfont] at (linkedin) {
+        linkedin.com/in/lucas-vacquie
+    };
+
+    % --- Ajout GitHub ---
+    \coordinate (seventh_image) at (sixth_image_2.south west);
+    \node [anchor=north west, align=left] (seventh_image_2) at (seventh_image) {\includegraphics[width=0.4cm]{Pictogramme/github.png}};
+
+    \coordinate (github) at ($(seventh_image_2.north east) + (0cm, -0.1cm)$);
+    \node[anchor=north west, align=left,font=\ptsans\fontsize{9}{15}\selectfont] at (github) {
+        github.com/ton-pseudo
+    };
+
     % --- COMPÉTENCES ---
-    \coordinate (second_title_G) at ($(fifth_image_2.south west) + (-0.45cm, -\gapTextToTitleGauche)$);
+    \coordinate (second_title_G) at ($(seventh_image_2.south west) + (-0.45cm, -\gapTextToTitleGauche)$);
     \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (second_title_G_2) at (second_title_G) {
         COMPÉTENCES
     };
@@ -248,10 +266,8 @@
     \node[anchor=north west,text width=6cm, align=justify,font=\ptsans\fontsize{9}{5}\selectfont,text=gris_foncee] (first_paragraphe_G_2) at (first_paragraphe_G) {
         \begin{minipage}{\linewidth}
             \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.1em, align=left, label=\textbullet]
-                \item Analyse Système
                 \item Rigueur Scientifique
                 \item Esprit d'équipe
-                \item Adaptabilité
                 \item Polyvalence
                 \item Gestion de projet
             \end{itemize}
