@@ -6,6 +6,7 @@
 \usepackage{fontspec}
 \usepackage{ragged2e}
 \usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
 
 \pagestyle{empty}
 
@@ -198,6 +199,7 @@
         COORDONNÉES
     };
 
+    %Adresse
     \coordinate (first_image) at ($(first_title_G_2.south west) + (0.45cm, -\gapTitle)$);
     \node [anchor=north west, align=left] (first_image_2) at (first_image) {\includegraphics[width=0.4cm]{Pictogramme/localisateur.png}};
 
@@ -206,6 +208,7 @@
         31240 L'Union
     };
 
+    %Téléphone
     \coordinate (second_image) at (first_image_2.south west);
     \node [anchor=north west, align=left] (second_image_2) at (second_image) {\includegraphics[width=0.4cm]{Pictogramme/telephone.png}};
 
@@ -214,14 +217,16 @@
         07 60 50 44 16
     };
 
+    % Email
     \coordinate (thrid_image) at (second_image_2.south west);
     \node [anchor=north west, align=left] (thrid_image_2) at (thrid_image) {\includegraphics[width=0.4cm]{Pictogramme/envoyer-le-symbole.png}};
 
     \coordinate (mail) at ($(thrid_image_2.north east) + (0cm, -0.1cm)$);
     \node[anchor=north west, align=left,font=\ptsans\fontsize{9}{15}\selectfont] at (mail) {
-        lucas.vacquie@2027.icam.fr
+        \href{mailto:lucas.vacquie@2027.icam.fr}{lucas.vacquie@2027.icam.fr}
     };
 
+    % Age
     \coordinate (fourth_image) at (thrid_image_2.south west);
     \node [anchor=north west, align=left] (fourth_image_2) at (fourth_image) {\includegraphics[width=0.4cm]{Pictogramme/gateau.png}};
 
@@ -230,6 +235,7 @@
         22 ans
     };
 
+    % Permis
     \coordinate (fifth_image) at (fourth_image_2.south west);
     \node [anchor=north west, align=left] (fifth_image_2) at (fifth_image) {\includegraphics[width=0.4cm]{Pictogramme/voiture-de-sport.png}};
 
@@ -238,22 +244,22 @@
         Permis B avec voiture
     };
 
-    % --- Ajout LinkedIn ---
+    % LinkedIn
     \coordinate (sixth_image) at (fifth_image_2.south west);
     \node [anchor=north west, align=left] (sixth_image_2) at (sixth_image) {\includegraphics[width=0.4cm]{Pictogramme/linkedin.png}};
 
     \coordinate (linkedin) at ($(sixth_image_2.north east) + (0cm, -0.1cm)$);
     \node[anchor=north west, align=left,font=\ptsans\fontsize{9}{15}\selectfont] at (linkedin) {
-        linkedin.com/in/lucas-vacquie
+        \href{https://www.linkedin.com/in/lucas-vacquié-08ba63329/}{LinkedIn}
     };
 
-    % --- Ajout GitHub ---
+    % GitHub
     \coordinate (seventh_image) at (sixth_image_2.south west);
     \node [anchor=north west, align=left] (seventh_image_2) at (seventh_image) {\includegraphics[width=0.4cm]{Pictogramme/github.png}};
 
     \coordinate (github) at ($(seventh_image_2.north east) + (0cm, -0.1cm)$);
     \node[anchor=north west, align=left,font=\ptsans\fontsize{9}{15}\selectfont] at (github) {
-        github.com/ton-pseudo
+        \href{https://github.com/lucasvcq}{GitHub}
     };
 
     % --- COMPÉTENCES ---
