@@ -20,44 +20,58 @@
 % SECTION : EXPÉRIENCE   (sortie : (exp_last))
 % ======================================================================
 
+% Stage 2ème année ICAM, Assistant Ingénieur, Microtec
 \newcommand{\expMicrotec}[1]{%
-    \node[anchor=north west, align=justify,font=\ptsansbold\fontsize{10}{8}\selectfont] (exp_sub) at (#1) {
+    \node[anchor=north west, text width=11.0cm, align=justify, font=\ptsansbold\fontsize{10}{8}\selectfont] (exp_sub) at (#1) {
         Assistant Ingénieur (Stage)\\
         Microtec
         \ptsans - Ramonville
     };
     \coordinate (exp_desc_pos) at ($(exp_sub.south west) + (0cm, 0.05cm)$);
-    \node[anchor=north west, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (exp_last) at (exp_desc_pos) {
-        \textbullet\ \textbf{Conception d'un outil d'analyse sous Excel (VBA)} pour la qualification par similarité \\
-        \textbullet\ Implémentation des règles normatives pour valider les composants par héritage
+    \node[anchor=north west, text width=11.0cm, align=justify, font=\ptsans\fontsize{9}{11}\selectfont, text=gris_foncee] (exp_last) at (exp_desc_pos) {
+        \begin{minipage}{\textwidth}
+            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.1em, align=left, label=\textbullet]
+                \item \textbf{Conception d'un outil d'analyse sous Excel (VBA)} pour la qualification par similarité
+                \item Implémentation des règles normatives pour valider les composants par héritage
+            \end{itemize}
+        \end{minipage}
     };
 }
 
+%Stage 1er année ICAM, Opérateur de Production, Pliage Métal
 \newcommand{\expPliageMetal}[1]{%
-    \node[anchor=north west, align=justify,font=\ptsansbold\fontsize{10}{8}\selectfont] (exp_sub) at (#1) {
+    \node[anchor=north west, text width=11.0cm, align=justify,font=\ptsansbold\fontsize{10}{8}\selectfont] (exp_sub) at (#1) {
         Opérateur de Production (Stage Ouvrier)\\
         Pliage Métal
         \ptsans - Montrabé
     };
     \coordinate (exp_desc_pos) at ($(exp_sub.south west) + (0cm, 0.05cm)$);
-    \node[anchor=north west, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (exp_last) at (exp_desc_pos) {
-        \textbullet\ Travail sur machines de précision et respect des processus industriels\\
-        \textbullet\ Immersion en atelier de production et respect des normes de sécurité
+    \node[anchor=north west, text width=11.0cm, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (exp_last) at (exp_desc_pos) {
+        \begin{minipage}{\textwidth}
+            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.1em, align=left, label=\textbullet]
+                \item  Travail sur machines de précision et respect des processus industriels
+                \item  Immersion en atelier de production et respect des normes de sécurité
+            \end{itemize}
+        \end{minipage}
     };
 }
 
 % -- Gabarit pour une future expérience (stage de fin d'études, alternance...) --
 % -- À dupliquer / renommer / compléter quand tu as une nouvelle expérience --
 \newcommand{\expGabarit}[1]{%
-    \node[anchor=north west, align=justify,font=\ptsansbold\fontsize{10}{8}\selectfont] (exp_sub) at (#1) {
+    \node[anchor=north west, text width=11.0cm, align=justify,font=\ptsansbold\fontsize{10}{8}\selectfont] (exp_sub) at (#1) {
         Intitulé du poste (Stage)\\
         Nom Entreprise
         \ptsans - Ville
     };
     \coordinate (exp_desc_pos) at ($(exp_sub.south west) + (0cm, 0.05cm)$);
-    \node[anchor=north west, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (exp_last) at (exp_desc_pos) {
-        \textbullet\ [BROUILLON à compléter] \\
-        \textbullet\ [BROUILLON à compléter]
+    \node[anchor=north west, text width=11.0cm, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (exp_last) at (exp_desc_pos) {
+        \begin{minipage}{\textwidth}
+            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.1em, align=left, label=\textbullet]
+                \item  [BROUILLON à compléter]
+                \item  [BROUILLON à compléter]
+            \end{itemize}
+        \end{minipage}
     };
 }
 
@@ -66,40 +80,54 @@
 % SECTION : ENGAGEMENT ASSOCIATIF   (sortie : (asso_last))
 % ======================================================================
 
+% Handball, Entraîneur & Arbitre, ASU
 \newcommand{\assoHandball}[1]{%
-    \node[anchor=north west, align=justify,font=\ptsansbold\fontsize{10}{10}\selectfont] (asso_sub) at (#1) {
+    \node[anchor=north west, text width=11.0cm, align=justify,font=\ptsansbold\fontsize{10}{10}\selectfont] (asso_sub) at (#1) {
         Entraîneur \& Arbitre\\
         ASU Handball
         \ptsans - L'Union
     };
     \coordinate (asso_desc_pos) at ($(asso_sub.south west) + (0cm, 0.05cm)$);
-    \node[anchor=north west, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (asso_last) at (asso_desc_pos) {
-        \textbullet\ Encadrement de jeunes joueurs, organisation de tournois et arbitrage
+    \node[anchor=north west, text width=11.0cm, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (asso_last) at (asso_desc_pos) {
+        \begin{minipage}{\textwidth}
+            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.1em, align=left, label=\textbullet]
+                \item  Encadrement de jeunes joueurs, organisation de tournois et arbitrage
+            \end{itemize}
+        \end{minipage}
     };
 }
 
+% Projet d'Action Solidaire : Bénévole, Voir et Comprendre
 \newcommand{\assoBenevole}[1]{%
-    \node[anchor=north west, align=justify,font=\ptsansbold\fontsize{10}{10}\selectfont] (asso_sub) at (#1) {
+    \node[anchor=north west, text width=11.0cm, align=justify,font=\ptsansbold\fontsize{10}{10}\selectfont] (asso_sub) at (#1) {
         Bénévole\\
         Voir et Comprendre
         \ptsans - Toulouse
     };
     \coordinate (asso_desc_pos) at ($(asso_sub.south west) + (0cm, 0.05cm)$);
-    \node[anchor=north west, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (asso_last) at (asso_desc_pos) {
-        \textbullet\ Accompagnement scolaire de collégiens et lycéens (quartier Reynerie)
+    \node[anchor=north west, text width=11.0cm, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (asso_last) at (asso_desc_pos) {
+        \begin{minipage}{\textwidth}
+            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.1em, align=left, label=\textbullet]
+                \item  Accompagnement scolaire de collégiens et lycéens (quartier Reynerie)
+            \end{itemize}
+        \end{minipage}
     };
 }
 
 % -- Gabarit pour un futur engagement associatif --
 \newcommand{\assoGabarit}[1]{%
-    \node[anchor=north west, align=justify,font=\ptsansbold\fontsize{10}{10}\selectfont] (asso_sub) at (#1) {
+    \node[anchor=north west, text width=11.0cm, align=justify,font=\ptsansbold\fontsize{10}{10}\selectfont] (asso_sub) at (#1) {
         Rôle\\
         Nom Association
         \ptsans - Ville
     };
     \coordinate (asso_desc_pos) at ($(asso_sub.south west) + (0cm, 0.05cm)$);
-    \node[anchor=north west, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (asso_last) at (asso_desc_pos) {
-        \textbullet\ [BROUILLON à compléter]
+    \node[anchor=north west, text width=11.0cm, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (asso_last) at (asso_desc_pos) {
+        \begin{minipage}{\textwidth}
+            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.1em, align=left, label=\textbullet]
+                \item  [BROUILLON à compléter]
+            \end{itemize}
+        \end{minipage}
     };
 }
 
@@ -107,11 +135,12 @@
 % ======================================================================
 % SECTION : PROJETS RÉALISÉS   (sortie : (proj_last))
 % ======================================================================
-% Chaque macro reproduit le style d'origine : un seul node text width=10.4cm
+% Chaque macro reproduit le style d'origine : un seul node text width=11.0cm
 % contenant un itemize à une puce (titre + description).
 
+% Projet Industriel 2ème année ICAM, Système Satellitaire
 \newcommand{\projSatellite}[1]{%
-    \node[anchor=north west,text width=10.4cm, align=justify,font=\ptsansbold\fontsize{9}{10.5}\selectfont,text=gris_foncee] (proj_last) at (#1) {
+    \node[anchor=north west,text width=11.0cm, align=justify,font=\ptsansbold\fontsize{9}{10.5}\selectfont,text=gris_foncee] (proj_last) at (#1) {
         \begin{minipage}{\linewidth}
             \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
                 \item \href{https://github.com/lucasvcq/satellite-docking-robot}{Système Satellitaire (Architecture Complexe) - Équipe de 25 :}
@@ -121,8 +150,9 @@
     };
 }
 
+% Projet Mécatronique 3ème année ICAM, BB8
 \newcommand{\projBBEight}[1]{%
-    \node[anchor=north west, text width=10.4cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
+    \node[anchor=north west, text width=11.0cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
         \begin{minipage}{\textwidth}
             \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
                 \item \href{https://github.com/lucasvcq/BB8-ballbot-truncated-sphere}{Robot Sphérique BB8 (Équipe de 6) :}
@@ -132,8 +162,9 @@
     };
 }
 
+% Projet 3ème année ICAM, Organisation Nuit ICAM
 \newcommand{\projNuitICAM}[1]{%
-    \node[anchor=north west, text width=10.4cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
+    \node[anchor=north west, text width=11.0cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
         \begin{minipage}{\textwidth}
             \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
                 \item Organisation Nuit ICAM (Gala 1800 pers.) - Pôle Logistique :
@@ -143,8 +174,9 @@
     };
 }
 
+% Experiment entre 2ème et 3ème année ICAM, Mobilité Internationale
 \newcommand{\projExperiment}[1]{%
-    \node[anchor=north west, text width=10.4cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
+    \node[anchor=north west, text width=11.0cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
         \begin{minipage}{\textwidth}
             \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
                 \item "Expériment" - Mobilité Internationale (4 mois, Asie) :
@@ -154,8 +186,9 @@
     };
 }
 
+% Projet Majeur 4ème année ICAM, Bras Robotique Impression 3D, Thales Alenia Space, Adaxis, RoboDK, UR5e
 \newcommand{\projBrasRobotique}[1]{%
-    \node[anchor=north west, text width=10.4cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
+    \node[anchor=north west, text width=11.0cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
         \begin{minipage}{\textwidth}
             \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
                 \item \href{https://github.com/lucasvcq/robotic-3d-printing-arm}{Cellule d'Impression 3D Robotisée (Collab. Thales Alenia Space)} :
@@ -165,19 +198,21 @@
     };
 }
 
+% Projet Mineur 4ème année ICAM, Convertisseur Buck Synchrone 48V/12V, Application Automobile
 \newcommand{\projBuckConverter}[1]{%
-    \node[anchor=north west, text width=10.4cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
+    \node[anchor=north west, text width=11.0cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
         \begin{minipage}{\textwidth}
             \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
-                \item Convertisseur Buck Synchrone 48V/12V (Application MHEV) : %[BROUILLON]
+                \item Convertisseur Buck Synchrone 48V/12V (Application MHEV) :
                 \ptsans Étude et conception d'une fonction d'électronique de puissance pour véhicule hybride léger. Dimensionnement des composants et analyse du schéma de commutation, présentés en soutenance technique.
             \end{itemize}
         \end{minipage}
     };
 }
 
+% Projet IA 3ème année ICAM, Comptage de File d'Attente par Vision, Raspberry Pi, Teachable Machine, MobileNet, MQTT, ThingsBoard
 \newcommand{\projQueueIA}[1]{%
-    \node[anchor=north west, text width=10.4cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
+    \node[anchor=north west, text width=11.0cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
         \begin{minipage}{\textwidth}
             \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
                 \item \href{https://github.com/lucasvcq/ai-queue-counting-raspberry-pi}{Système de Comptage de File d'Attente par IA :}
@@ -187,8 +222,9 @@
     };
 }
 
+% Projet Jumeaux Numériques 4ème année ICAM, Robot Soccer Kit, Python, Simulation, Modélisation
 \newcommand{\projSoccerKit}[1]{%
-    \node[anchor=north west, text width=10.4cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
+    \node[anchor=north west, text width=11.0cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
         \begin{minipage}{\textwidth}
             \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
                 \item \href{https://github.com/lucasvcq/robot-soccer-digital-twin}{Jumeau Numérique de Robot Soccer (Robot Soccer Kit, Python) :}
@@ -198,8 +234,9 @@
     };
 }
 
+% Projet 4ème année ICAM, Application Mobile de Vie Associative, React Native, Expo, TypeScript, Firebase, Gemini API
 \newcommand{\projAppMobileAsso}[1]{%
-    \node[anchor=north west, text width=10.4cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
+    \node[anchor=north west, text width=11.0cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
         \begin{minipage}{\textwidth}
             \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
                 \item \href{https://github.com/lucasvcq/student-sport-app}{Application Web/Mobile de Vie Associative ICAM (Équipe de 3) :}
@@ -211,7 +248,7 @@
 
 % -- Gabarit pour un futur projet --
 \newcommand{\projGabarit}[1]{%
-    \node[anchor=north west, text width=10.4cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
+    \node[anchor=north west, text width=11.0cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_last) at (#1) {
         \begin{minipage}{\textwidth}
             \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
                 \item Titre du Projet (Contexte, taille d'équipe) :

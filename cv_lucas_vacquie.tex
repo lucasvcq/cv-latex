@@ -7,6 +7,10 @@
 \usepackage{ragged2e}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
 
 \pagestyle{empty}
 
@@ -31,8 +35,8 @@
 % --- RÉGLAGE DES ESPACES (ÉQUILIBRÉ) ---
 \newcommand{\gapNom}{-0.12cm}
 \newcommand{\gapTitle}{0.08cm} 
-\newcommand{\gapTextToTitle}{0.30cm} % Remis un peu plus large
-\newcommand{\gapTextToTitleGauche}{0.30cm}
+\newcommand{\gapTextToTitle}{0.35cm} % Remis un peu plus large
+\newcommand{\gapTextToTitleGauche}{0.35cm}
 \newcommand{\gapTextToSub}{0.12cm}   % Remis un peu plus large
 
 % --- BANQUE DE CONTENUS (expériences / engagements / projets) ---
@@ -60,7 +64,7 @@
     };
 
     % --- RUBRIQUE PROFIL (Ciblé MBDA) ---
-    \coordinate (first_title) at (3.87cm,0cm);
+    \coordinate (first_title) at (3.87cm,0.5cm);
 
     \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (first_title_2) at (first_title) {
         PROFIL
@@ -68,7 +72,7 @@
 
     \coordinate (first_paragraphe) at ($(first_title_2.south west) + (0.5cm, -\gapTitle)$);
 
-    \node[anchor=north west,text width=10.9cm, align=justify,font=\ptsans\fontsize{9}{11}\selectfont, text=gris_foncee] (first_paragraphe_2) at (first_paragraphe) {
+    \node[anchor=north west,text width=11.0cm, align=justify,font=\ptsans\fontsize{9}{11}\selectfont, text=gris_foncee] (first_paragraphe_2) at (first_paragraphe) {
         Futur ingénieur généraliste passionné par les systèmes complexes et l'aéronautique, je recherche un stage de fin d'études en Ingénierie Système. 
         Fort d'une double compétence en algorithmie (Python/Matlab) et en électronique embarquée, je souhaite m'investir dans la conception et la validation de fonctions opérationnelles (trajectoire/mission).
     };
@@ -130,8 +134,9 @@
     \coordinate (form_icam) at ($(formation_title_2.south west) + (0.5cm, -\gapTitle)$);
 
     \node[anchor=north west, align=justify,font=\ptsans\fontsize{10}{12}\selectfont] (form_icam_2) at (form_icam) {
-        5ème Année - Cycle Généraliste - Majeure N.I.D (Numérique et Industrie de Demain), 
-        \\09/2024 – Diplôme prévu en 2027\\
+        5ème Année - Cycle Généraliste - Majeure N.I.D (Numérique et Industrie 
+        \\de Demain), 
+        \\09/2022 – Diplôme prévu en 2027\\
         \ptsansbold ICAM
         - Toulouse \ptsans (Classes prépas intégrées PTSI-PT)
     };
@@ -191,10 +196,10 @@
 
     %%% DÉBUT PARTIE GAUCHE (Colonne Bleue) %%%
 
-    \coordinate (photo) at (-3.7cm,4.23cm);
+    \coordinate (photo) at (-3.7cm,4.5cm);
     \node [anchor=north west, align=left] (photo_2) at (photo) {\includegraphics[width=4.2cm]{Photos/Photo_CV.jpg}};
     
-    \coordinate (first_title_G) at (-4.3cm,-1.8cm);
+    \coordinate (first_title_G) at (-4.3cm,-1.5cm);
     \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (first_title_G_2) at (first_title_G) {
         COORDONNÉES
     };
