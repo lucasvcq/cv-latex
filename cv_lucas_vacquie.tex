@@ -34,6 +34,9 @@
 \newcommand{\gapTextToTitleGauche}{0.35cm}
 \newcommand{\gapTextToSub}{0.12cm}   % Remis un peu plus large
 
+% --- BANQUE DE CONTENUS (expériences / engagements / projets) ---
+\input{cv_banque_contenus.tex}
+
 \begin{tikzpicture}[remember picture, overlay]
 
     % --- FOND DE PAGE ---
@@ -52,7 +55,7 @@
     \coordinate (secondLine) at ($(NOM_2.south west) + (0, -\gapNom)$);
 
     \node[anchor=north west, align=left,font=\ptsansespace\fontsize{15}{15}\selectfont, text=blanc_creme] at (secondLine) {
-        ÉLÈVE-INGÉNIEUR GÉNÉRALISTE - 4ème ANNÉE
+        ÉLÈVE-INGÉNIEUR GÉNÉRALISTE - 5ème ANNÉE
     };
 
     % --- RUBRIQUE PROFIL (Ciblé MBDA) ---
@@ -65,88 +68,59 @@
     \coordinate (first_paragraphe) at ($(first_title_2.south west) + (0.5cm, -\gapTitle)$);
 
     \node[anchor=north west,text width=10.9cm, align=justify,font=\ptsans\fontsize{9}{11}\selectfont, text=gris_foncee] (first_paragraphe_2) at (first_paragraphe) {
-        Futur ingénieur généraliste passionné par les systèmes complexes et l'aéronautique, je recherche un stage de fin d'études en Ingénierie Système. Fort d'une double compétence en algorithmie (Python/Matlab) et en électronique embarquée, je souhaite m'investir dans la conception et la validation de fonctions opérationnelles (trajectoire/mission).
+        Futur ingénieur généraliste passionné par les systèmes complexes et l'aéronautique, je recherche un stage de fin d'études en Ingénierie Système. 
+        Fort d'une double compétence en algorithmie (Python/Matlab) et en électronique embarquée, je souhaite m'investir dans la conception et la validation de fonctions opérationnelles (trajectoire/mission).
     };
 
+    % ==================================================================
     % --- RUBRIQUE EXPÉRIENCE ---
+    % ==================================================================
+    % Blocs disponibles dans la banque : \expMicrotec \expPliageMetal \expGabarit
+    % Pour ajouter/retirer un bloc : dupliquer le motif "coordonnée + macro"
+    % ci-dessous. Le 1er bloc s'indente de 0.5cm sous le titre (-\gapTitle),
+    % les suivants s'enchaînent à x=0 sous le bloc précédent (-\gapTextToSub).
+
     \coordinate (second_title) at ($(first_paragraphe_2.south west) + (-0.5cm, -\gapTextToTitle)$);
 
     \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (second_title_2) at (second_title) {
         EXPÉRIENCE
     };
 
-    % 1. MICROTEC
-    \coordinate (exp_micro_sub) at ($(second_title_2.south west) + (0.5cm, -\gapTitle)$);
-    
-    \node[anchor=north west, align=justify,font=\ptsansbold\fontsize{10}{8}\selectfont] (exp_micro_sub_2) at (exp_micro_sub) {
-        Assistant Ingénieur (Stage)\\
-        Microtec
-        \ptsans - Ramonville
-    };
+    % --- SÉLECTION EXPÉRIENCE (édite ici selon la candidature) ---
+    \coordinate (exp_pos) at ($(second_title_2.south west) + (0.5cm, -\gapTitle)$);
+    \expMicrotec{exp_pos}
 
-    \coordinate (exp_micro_desc) at ($(exp_micro_sub_2.south west) + (0cm, 0.05cm)$);
-    
-    \node[anchor=north west, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (exp_micro_desc_2) at (exp_micro_desc) {
-        \textbullet\ \textbf{Conception d'un outil d'analyse sous Excel (VBA)} pour la qualification par similarité \\
-        \textbullet\ Implémentation des règles normatives pour valider les composants par héritage \\
-        \textbullet\ Création d'une interface utilisateur intuitive intégrée à l'environnement bureau \\ d'études
-    };
+    \coordinate (exp_pos) at ($(exp_last.south west) + (0cm, -\gapTextToSub)$);
+    \expPliageMetal{exp_pos}
 
-    % 2. PLIAGE MÉTAL
-    \coordinate (exp_pliage_sub) at ($(exp_micro_desc_2.south west) + (0cm, -\gapTextToSub)$);
-    
-    \node[anchor=north west, align=justify,font=\ptsansbold\fontsize{10}{8}\selectfont] (exp_pliage_sub_2) at (exp_pliage_sub) {
-        Opérateur de Production (Stage Ouvrier)\\
-        Pliage Métal
-        \ptsans - Montrabé
-    };
+    % \coordinate (exp_pos) at ($(exp_last.south west) + (0cm, -\gapTextToSub)$);
+    % \expGabarit{exp_pos}
+    % --- FIN SÉLECTION EXPÉRIENCE ---
 
-    \coordinate (exp_pliage_desc) at ($(exp_pliage_sub_2.south west) + (0cm, 0.05cm)$);
-
-    \node[anchor=north west, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (exp_pliage_desc_2) at (exp_pliage_desc) {
-        \textbullet\ Travail sur machines de précision et respect des processus industriels\\
-        \textbullet\ Immersion en atelier de production et respect des normes de sécurité
-    };
-
+    % ==================================================================
     % --- RUBRIQUE ENGAGEMENT ASSOCIATIF ---
-    \coordinate (asso_title) at ($(exp_pliage_desc_2.south west) + (-0.5cm, -\gapTextToTitle)$);
+    % ==================================================================
+    % Blocs disponibles : \assoHandball \assoBenevole \assoGabarit
+
+    \coordinate (asso_title) at ($(exp_last.south west) + (-0.5cm, -\gapTextToTitle)$);
 
     \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (asso_title_2) at (asso_title) {
         ENGAGEMENT ASSOCIATIF
     };
 
-    % 3. HANDBALL
-    \coordinate (asso_hand_sub) at ($(asso_title_2.south west) + (0.5cm, -\gapTitle)$);
+    % --- SÉLECTION ENGAGEMENT ASSOCIATIF (édite ici selon la candidature) ---
+    \coordinate (asso_pos) at ($(asso_title_2.south west) + (0.5cm, -\gapTitle)$);
+    \assoHandball{asso_pos}
 
-    \node[anchor=north west, align=justify,font=\ptsansbold\fontsize{10}{10}\selectfont] (asso_hand_sub_2) at (asso_hand_sub) {
-        Entraîneur \& Arbitre\\
-        ASU Handball
-        \ptsans - L'Union
-    };
-    
-    \coordinate (asso_hand_desc) at ($(asso_hand_sub_2.south west) + (0cm, 0.05cm)$);
+    \coordinate (asso_pos) at ($(asso_last.south west) + (0cm, -\gapTextToSub)$);
+    \assoBenevole{asso_pos}
 
-    \node[anchor=north west, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (asso_hand_desc_2) at (asso_hand_desc) {
-        \textbullet\ Encadrement de jeunes joueurs, organisation de tournois et arbitrage
-    };
-
-    % 4. BÉNÉVOLE
-    \coordinate (asso_benevole_sub) at ($(asso_hand_desc_2.south west) + (0cm, -\gapTextToSub)$);
-
-    \node[anchor=north west, align=justify,font=\ptsansbold\fontsize{10}{10}\selectfont] (asso_benevole_sub_2) at (asso_benevole_sub) {
-        Bénévole\\
-        Voir et Comprendre
-        \ptsans - Toulouse
-    };
-    
-    \coordinate (asso_benevole_desc) at ($(asso_benevole_sub_2.south west) + (0cm, 0.05cm)$);
-
-    \node[anchor=north west, align=justify,font=\ptsans\fontsize{9}{11}\selectfont,text=gris_foncee] (asso_benevole_desc_2) at (asso_benevole_desc) {
-        \textbullet\ Accompagnement scolaire de collégiens et lycéens (quartier Reynerie)
-    };
+    % \coordinate (asso_pos) at ($(asso_last.south west) + (0cm, -\gapTextToSub)$);
+    % \assoGabarit{asso_pos}
+    % --- FIN SÉLECTION ENGAGEMENT ASSOCIATIF ---
 
     % --- RUBRIQUE FORMATION ---
-    \coordinate (formation_title) at ($(asso_benevole_desc_2.south west) + (-0.5cm, -\gapTextToTitle)$);
+    \coordinate (formation_title) at ($(asso_last.south west) + (-0.5cm, -\gapTextToTitle)$);
 
     \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (formation_title_2) at (formation_title) {
         FORMATION
@@ -155,7 +129,8 @@
     \coordinate (form_icam) at ($(formation_title_2.south west) + (0.5cm, -\gapTitle)$);
 
     \node[anchor=north west, align=justify,font=\ptsans\fontsize{10}{12}\selectfont] (form_icam_2) at (form_icam) {
-        4ème Année - Cycle Ingénieur Généraliste, 09/2024 – Diplôme prévu en 2027\\
+        5ème Année - Cycle Généraliste - Majeure N.I.D (Numérique et Industrie de Demain), 
+        \\09/2024 – Diplôme prévu en 2027\\
         \ptsansbold ICAM
         - Toulouse \ptsans (Classes prépas intégrées PTSI-PT)
     };
@@ -168,60 +143,47 @@
         \ptsans - Toulouse - Mention Bien
     };
 
-    % --- RUBRIQUE PROJETS RÉALISÉS (4 PROJETS) ---
+    % ==================================================================
+    % --- RUBRIQUE PROJETS RÉALISÉS ---
+    % ==================================================================
+    % Blocs disponibles dans la banque :
+    %   \projSatellite  \projBBEight  \projNuitICAM  \projExperiment
+    %   \projBrasRobotique  \projBuckConverter  \projQueueIA  \projSoccerKit
+    %   \projGabarit \projAppMobileAsso
+    % NB : cette rubrique ne conditionne PAS la colonne de gauche (positions
+    % absolues), donc tu peux ajouter/retirer des projets librement, seule
+    % la hauteur totale de la page (donc l'équilibre visuel) en dépend.
+
     \coordinate (projets_title) at ($(form_bac_2.south west) + (-0.5cm, -\gapTextToTitle)$);
 
     \node[anchor=north west, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (projets_title_2) at (projets_title) {
         PROJETS RÉALISÉS
     };
 
-    % Projet Satellite
-    \coordinate (proj_sat) at ($(projets_title_2.south west) + (0.5cm, -\gapTitle)$);
+    % --- SÉLECTION PROJETS (édite ici selon la candidature) ---
+    \coordinate (proj_pos) at ($(projets_title_2.south west) + (0.5cm, -\gapTitle)$);
+    \projBrasRobotique{proj_pos}
 
-    \node[anchor=north west,text width=10.4cm, align=justify,font=\ptsansbold\fontsize{9}{10.5}\selectfont,text=gris_foncee] (proj_sat_2) at (proj_sat) {
-        \begin{minipage}{\linewidth}
-            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
-                \item Système Satellitaire (Architecture Complexe) - Équipe de 25 :
-                \ptsans Conception système d'éjection et prise de vue. Développement de la logique de contrôle et programmation des capteurs (Arduino/ESP32).
-            \end{itemize}
-        \end{minipage}
-    };
+    \coordinate (proj_pos) at ($(proj_last.south west) + (0cm, -0.05cm)$);
+    \projNuitICAM{proj_pos}
 
-    % Projet BB8 (Matlab)
-    \coordinate (proj_bb8) at ($(proj_sat_2.south west) + (0cm, -0.05cm)$);
+    \coordinate (proj_pos) at ($(proj_last.south west) + (0cm, -0.05cm)$);
+    \projSatellite{proj_pos}
 
-    \node[anchor=north west, text width=10.4cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_bb8_2) at (proj_bb8) {
-        \begin{minipage}{\textwidth}
-            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
-                \item Robot Sphérique BB8 (Équipe de 6) :
-                \ptsans Modélisation sous \textbf{Matlab}. Conception électronique et développement de l'asservissement PID et programmation en C++.
-            \end{itemize}
-        \end{minipage}
-    };
-    
-    % Projet Nuit ICAM
-    \coordinate (proj_icam) at ($(proj_bb8_2.south west) + (0cm, -0.05cm)$);
+    \coordinate (proj_pos) at ($(proj_last.south west) + (0cm, -0.05cm)$);
+    \projBBEight{proj_pos}
 
-    \node[anchor=north west, text width=10.4cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_icam_2) at (proj_icam) {
-        \begin{minipage}{\textwidth}
-            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
-                \item Organisation Nuit ICAM (Gala 1800 pers.) - Pôle Logistique :
-                \ptsans Coordination d'une équipe de 80 personnes. Gestion des installations techniques (plan électrique, structures) et supervision opérationnelle.
-            \end{itemize}
-        \end{minipage}
-    };
-
-    % Projet Expériment
-    \coordinate (proj_exp) at ($(proj_icam_2.south west) + (0cm, -0.05cm)$);
-
-    \node[anchor=north west, text width=10.4cm, align=justify, font=\ptsansbold\fontsize{9}{10.5}\selectfont, text=gris_foncee] (proj_exp_2) at (proj_exp) {
-        \begin{minipage}{\textwidth}
-            \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.05em, align=left, label=\textbullet]
-                \item "Expériment" - Mobilité Internationale (4 mois, Asie) :
-                \ptsans Immersion en autonomie au Cambodge et en Malaisie. 1 mois de bénévolat dans une école et développement de l'adaptabilité interculturelle.
-            \end{itemize}
-        \end{minipage}
-    };
+    % Variantes disponibles, à activer selon l'offre (décommenter + adapter
+    % l'ordre / les autres lignes ci-dessus si besoin) :
+    % \coordinate (proj_pos) at ($(proj_last.south west) + (0cm, -0.05cm)$);
+    % \projQueueIA{proj_pos}
+    % \coordinate (proj_pos) at ($(proj_last.south west) + (0cm, -0.05cm)$);
+    % \projSoccerKit{proj_pos}
+    % \coordinate (proj_pos) at ($(proj_last.south west) + (0cm, -0.05cm)$);
+    % \projNuitICAM{proj_pos}
+    % \coordinate (proj_pos) at ($(proj_last.south west) + (0cm, -0.05cm)$);
+    % \projExperiment{proj_pos}
+    % --- FIN SÉLECTION PROJETS ---
 
 
     %%% FIN PARTIE DROITE DE LA FEUILLE %%%
@@ -241,7 +203,7 @@
 
     \coordinate (adresse) at ($(first_image_2.north east) + (0cm, -0.1cm)$);
     \node[anchor=north west, align=left,font=\ptsans\fontsize{9}{15}\selectfont] at (adresse) {
-        55 rue de l'autan blanc, 31240 L'Union
+        31240 L'Union
     };
 
     \coordinate (second_image) at (first_image_2.south west);
@@ -257,7 +219,7 @@
 
     \coordinate (mail) at ($(thrid_image_2.north east) + (0cm, -0.1cm)$);
     \node[anchor=north west, align=left,font=\ptsans\fontsize{9}{15}\selectfont] at (mail) {
-        lucas.vacquie@icloud.com
+        lucas.vacquie@2027.icam.fr
     };
 
     \coordinate (fourth_image) at (thrid_image_2.south west);
@@ -265,7 +227,7 @@
 
     \coordinate (age) at ($(fourth_image_2.north east) + (0cm, -0.1cm)$);
     \node[anchor=north west, align=left,font=\ptsans\fontsize{9}{15}\selectfont] at (age) {
-        21 ans
+        22 ans
     };
 
     \coordinate (fifth_image) at (fourth_image_2.south west);
@@ -359,8 +321,8 @@
     \node[anchor=north west,text width=6cm, align=justify,font=\ptsans\fontsize{9}{5}\selectfont,text=gris_foncee] (second_paragraphe_G_2) at (second_paragraphe_G) {
         \begin{minipage}{\linewidth}
             \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.1em, align=left, label=\textbullet]
-                \item Handball (Compétition)
-                \item Musique
+                \item Handball (Compétition) \& Volleyball
+                \item Course à pied (Préparation Marathon)
                 \item Informatique / Hardware
             \end{itemize}
         \end{minipage}
@@ -369,20 +331,25 @@
     % --- LOGICIELS ET LANGAGES ---
     \coordinate (fifth_title_G) at ($(second_paragraphe_G_2.south west) + (-0.45cm, -\gapTextToTitleGauche)$);
     \node[anchor=north west, text width=6cm, align=left,font=\ptsansboldespace\fontsize{14}{15}\selectfont] (fifth_title_G_2) at (fifth_title_G) {
-        LANGAGES ET \mbox{MODÉLISATIONS} \mbox{INFORMATIQUES}
+        OUTILS \& LANGAGES
     };
 
     \coordinate (thrid_paragraphe_G) at ($(fifth_title_G_2.south west) + (0.45cm, -\gapTitle)$);
     \node[anchor=north west,text width=6cm, align=justify,font=\ptsans\fontsize{9}{5}\selectfont,text=gris_foncee] (thrid_paragraphe_G_2) at (thrid_paragraphe_G) {
         \begin{minipage}{\linewidth}
             \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.1em, align=left, label=\textbullet]
-                \item \textbf{Matlab / Simulink}
                 \item Python (Algorithmie)
                 \item C / C++ (Embarqué)
-                \item VBA Excel
+                \item Git / GitHub
+                \item HTML / CSS / JavaScript
+                %\item SQL / MySQL
+                %\item VBA Excel
+                \item Matlab / Simulink
                 \item Arduino / ESP32
                 \item \LaTeX
-                \item SolidWorks
+                \item SolidWorks / CAO
+                \item ROS2/RoboDK
+                %\item Linux (Ubuntu) / Bash
             \end{itemize}
         \end{minipage}
     };
