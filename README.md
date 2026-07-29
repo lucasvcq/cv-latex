@@ -12,9 +12,9 @@ My résumé/CV, written in LaTeX for full control over layout and typography. Th
 
 This repository contains the LaTeX source for my CV, along with the custom font and icon assets used in the design.
 
-### Structure
+### Structure (English)
 
-```
+```text
 cv-latex/
 ├── cv_lucas_vacquie.tex     ← layout (design, positioning) — rarely touched
 ├── cv_banque_contenus.tex   ← content bank: every experience/project/
@@ -33,9 +33,11 @@ cv-latex/
 1. Duplicate `selection_classique.tex` into `selection_<company>.tex`.
 2. Inside, edit the three macros (`\SelectionExperience`, `\SelectionAssociatif`, `\SelectionProjets`) to pick which items from `cv_banque_contenus.tex` to display, and in what order.
 3. In `cv_lucas_vacquie.tex`, change the single line:
+
    ```latex
    \input{selection_classique.tex}
    ```
+
    to point to the new selection file.
 4. Recompile and check the page still fits (the background height is fixed, so adding/removing items can under- or overflow the page).
 
@@ -63,7 +65,7 @@ Ce dépôt contient le code source LaTeX de mon CV, avec la police et les icône
 
 ### Structure
 
-```
+```text
 cv-latex/
 ├── cv_lucas_vacquie.tex     ← mise en page (design, positionnement) —
 │                               rarement modifié
@@ -84,9 +86,11 @@ cv-latex/
 1. Dupliquer `selection_classique.tex` en `selection_<entreprise>.tex`.
 2. Éditer les trois macros (`\SelectionExperience`, `\SelectionAssociatif`, `\SelectionProjets`) pour choisir les éléments de `cv_banque_contenus.tex` à afficher, et dans quel ordre.
 3. Dans `cv_lucas_vacquie.tex`, changer uniquement la ligne :
+
    ```latex
    \input{selection_classique.tex}
    ```
+
    pour pointer vers le nouveau fichier de sélection.
 4. Recompiler et vérifier que tout tient sur la page (le fond a une hauteur fixe, donc ajouter/retirer des éléments peut créer du vide ou un débordement).
 
