@@ -85,8 +85,7 @@
     \coordinate (first_paragraphe) at ($(first_title_2.south west) + (0.5cm, -\gapTitle)$);
 
     \node[anchor=north west,text width=11.0cm, align=justify,font=\ptsans\fontsize{9}{11}\selectfont, text=gris_foncee] (first_paragraphe_2) at (first_paragraphe) {
-        Futur ingénieur généraliste passionné par les systèmes complexes et l'aéronautique, je recherche un stage de fin d'études en Ingénierie Système. 
-        Fort d'une double compétence en algorithmie (Python/Matlab) et en électronique embarquée, je souhaite m'investir dans la conception et la validation de fonctions opérationnelles (trajectoire/mission).
+        \Profil
     };
 
     % ==================================================================
@@ -132,10 +131,9 @@
     \coordinate (form_icam) at ($(formation_title_2.south west) + (0.5cm, -\gapTitle)$);
 
     \node[anchor=north west, text width=11.0cm, align=justify,font=\ptsans\fontsize{9}{11}\selectfont] (form_icam_2) at (form_icam) {
-        5ème Année - Cycle Généraliste - Majeure N.I.D (Numérique et Industrie de Demain),\\
+        \ptsansbold 5ème Année - Cycle Généraliste \ptsans - Majeure N.I.D (Numérique et Industrie de Demain),\\
         09/2022 – Diplôme prévu en 2027\\
-        \ptsansbold ICAM
-        - Toulouse \ptsans (Classes prépas PTSI-PT)
+        \ptsansbold ICAM - Toulouse \ptsans (Classes prépas PTSI-PT)
     };
 
     \coordinate (form_bac) at ($(form_icam_2.south west) + (0cm, -0.1cm)$);
@@ -253,12 +251,7 @@
     \node[anchor=north west,text width=6cm, align=justify,font=\ptsans\fontsize{9}{5}\selectfont,text=gris_foncee] (first_paragraphe_G_2) at (first_paragraphe_G) {
         \begin{minipage}{\linewidth}
             \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.1em, align=left, label=\textbullet]
-                \item Analyse Système
-                \item Rigueur Scientifique
-                \item Esprit d'équipe
-                %\item Adaptabilité
-                \item Polyvalence
-                \item Gestion de projet
+                \Competences
             \end{itemize}
         \end{minipage}
     };
@@ -269,7 +262,7 @@
         LANGUES
     };
 
-    % Français
+    % Francais
     \coordinate (first_language) at ($(thrid_title_G_2.south west) + (0.45cm, -\gapTitle)$);
     \node[anchor=north west, align=left,font=\ptsansbold\fontsize{9}{15}\selectfont,text=gris_foncee] (first_language_2) at (first_language) {
         Français
@@ -346,18 +339,7 @@
     \node[anchor=north west,text width=6cm, align=justify,font=\ptsans\fontsize{9}{5}\selectfont,text=gris_foncee] (thrid_paragraphe_G_2) at (thrid_paragraphe_G) {
         \begin{minipage}{\linewidth}
             \begin{itemize}[left=0em, labelsep=0.5em, itemsep=0.1em, align=left, label=\textbullet]
-                \item Python (Algorithmie)
-                \item C / C++ (Embarqué)
-                \item Git / GitHub
-                \item HTML / CSS / JavaScript
-                \item Matlab / Simulink
-                \item Arduino / ESP32
-                \item \LaTeX
-                \item SolidWorks / CAO
-                %\item ROS2 / RoboDK
-                %\item Linux (Ubuntu) / Bash
-                %\item SQL / MySQL
-                %\item VBA Excel
+                \OutilsLangages
             \end{itemize}
         \end{minipage}
     };

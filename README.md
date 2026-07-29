@@ -31,7 +31,10 @@ cv-latex/
 ### Adapting the CV to a specific job offer
 
 1. Duplicate `selection_classique.tex` into `selection_<company>.tex`.
-2. Inside, edit the three macros (`\SelectionExperience`, `\SelectionAssociatif`, `\SelectionProjets`) to pick which items from `cv_banque_contenus.tex` to display, and in what order.
+2. Inside, edit:
+   - `\Profil` — pick a variant from the bank (`\ProfilIngenierieSysteme`, `\ProfilEmbarqueLogiciel`, `\ProfilGeneraliste`) or write a custom paragraph.
+   - `\Competences` and `\OutilsLangages` — lists of `\item`s; pick from the reserve at the end of `cv_banque_contenus.tex` or add your own.
+   - `\SelectionExperience`, `\SelectionAssociatif`, `\SelectionProjets` — which items from `cv_banque_contenus.tex` to display, and in what order.
 3. In `cv_lucas_vacquie.tex`, change the single line:
 
    ```latex
@@ -84,7 +87,10 @@ cv-latex/
 ### Adapter le CV à une offre précise
 
 1. Dupliquer `selection_classique.tex` en `selection_<entreprise>.tex`.
-2. Éditer les trois macros (`\SelectionExperience`, `\SelectionAssociatif`, `\SelectionProjets`) pour choisir les éléments de `cv_banque_contenus.tex` à afficher, et dans quel ordre.
+2. Éditer :
+   - `\Profil` — choisir une variante de la banque (`\ProfilIngenierieSysteme`, `\ProfilEmbarqueLogiciel`, `\ProfilGeneraliste`) ou écrire un paragraphe sur mesure.
+   - `\Competences` et `\OutilsLangages` — listes de `\item` ; piocher dans la réserve en fin de `cv_banque_contenus.tex` ou en ajouter.
+   - `\SelectionExperience`, `\SelectionAssociatif`, `\SelectionProjets` — les éléments de `cv_banque_contenus.tex` à afficher, et dans quel ordre.
 3. Dans `cv_lucas_vacquie.tex`, changer uniquement la ligne :
 
    ```latex
