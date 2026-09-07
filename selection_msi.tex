@@ -1,0 +1,90 @@
+% ======================================================================
+% SÉLECTION DE CONTENUS — Candidature MSI (Loupiac / Sage / Bonal / De Roland)
+% ======================================================================
+% Ce fichier NE CONTIENT AUCUNE MISE EN PAGE. Il choisit juste, parmi les
+% macros de cv_banque_contenus.tex, lesquelles afficher et dans quel ordre.
+%
+% Ciblage : un seul CV pour candidater sur les 4 thématiques qui
+% t'intéressent (pas un CV par thématique), en couvrant leur terrain commun
+% plutôt qu'en sur-spécialisant sur une seule :
+%   - Eric LOUPIAC   : Conception machines spéciales / Prototypage / Réorg. industrielle
+%   - Louis SAGE     : Traitement d'images / informatique industrielle
+%   - Mathieu BONNAL : Conception / Prototypage / Organisation industrielle / Gestion de flux
+%   - Daniel DE ROLAND : Systèmes embarqués et objets connectés
+%
+% Rappel des blocs disponibles dans la banque :
+%   Expérience : \expMicrotec \expPliageMetal \expGabarit
+%   Associatif : \assoHandball \assoBenevole \assoGabarit
+%   Projets    : \projBrasRobotique \projBuckConverter \projSatellite
+%                \projBBEight \projQueueIA \projSoccerKit \projAppMobileAsso
+%                \projNuitICAM \projExperiment \projGabarit
+%   Profil     : \ProfilIngenierieSysteme \ProfilEmbarqueLogiciel
+%                \ProfilGeneraliste (ou un texte libre)
+%
+% Convention : chaque macro de sélection suppose qu'une coordonnée de départ
+% (exp_pos / asso_pos / proj_pos) a déjà été positionnée par le CV principal
+% juste avant l'appel (sous le titre de la rubrique).
+% ======================================================================
+
+% --- PROFIL ---
+% Version généraliste : pas de candidature MSI mono-thématique, donc pas
+% de profil sur-ciblé aéro/systèmes (garde ça pour MBDA).
+\newcommand{\Profil}{\ProfilGeneraliste}
+
+% --- COMPÉTENCES ---
+\newcommand{\Competences}{%
+    \item Rigueur Scientifique
+    \item Esprit d'équipe
+    \item Adaptabilité
+    \item Polyvalence
+    \item Autonomie
+    \item Gestion de projet
+}
+
+% --- OUTILS & LANGAGES ---
+% Conservé large : SolidWorks/CAO et Arduino/ESP32/Linux couvrent
+% conception-prototypage + embarqué/IoT ; Python couvre l'informatique
+% industrielle et le traitement de données.
+\newcommand{\OutilsLangages}{%
+    \item Python (Algorithmie)
+    \item C / C++ (Embarqué)
+    \item Matlab / Simulink
+    \item Arduino / ESP32
+    \item SolidWorks / CAO
+    \item Git / GitHub
+    \item ROS2 / RoboDK
+}
+
+% --- EXPÉRIENCE ---
+% Les deux expériences se complètent bien ici : Microtec pour le bureau
+% d'études, Pliage Métal pour l'atelier/la production (parle directement à
+% Loupiac et Bonnal sur l'organisation industrielle).
+\newcommand{\SelectionExperience}{%
+    \expMicrotec{exp_pos}
+    \chainNext{exp_pos}{exp_last}{\gapTextToSub}
+    \expPliageMetal{exp_pos}
+}
+
+% --- ENGAGEMENT ASSOCIATIF ---
+\newcommand{\SelectionAssociatif}{%
+    \assoHandball{asso_pos}
+    \chainNext{asso_pos}{asso_last}{\gapTextToSub}
+    \assoBenevole{asso_pos}
+}
+
+% --- PROJETS RÉALISÉS ---
+% 4 projets choisis pour couvrir ENSEMBLE les 4 thématiques visées, sans
+% qu'aucun ne soit "hors sujet" pour l'un des 4 encadrants :
+%   - Bras Robotique   : conception/prototypage (Loupiac, Bonnal) + embarqué (De Roland)
+%   - Queue IA         : traitement d'images/vision (Sage) + objets connectés (De Roland)
+%   - BB8              : programmation embarquée / asservissement (De Roland)
+%   - Nuit ICAM        : organisation industrielle / gestion de flux à grande échelle (Loupiac, Bonnal)
+\newcommand{\SelectionProjets}{%
+    \projBrasRobotique{proj_pos}
+    \chainNext{proj_pos}{proj_last}{0.05cm}
+    \projQueueIA{proj_pos}
+    \chainNext{proj_pos}{proj_last}{0.05cm}
+    \projBBEight{proj_pos}
+    \chainNext{proj_pos}{proj_last}{0.05cm}
+    \projNuitICAM{proj_pos}
+}
