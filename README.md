@@ -6,60 +6,6 @@ My résumé/CV, written in LaTeX for full control over layout and typography. Th
 
 ---
 
-## English
-
-📄 **[Download the PDF](cv_lucas_vacquie.pdf)**
-
-This repository contains the LaTeX source for my CV, along with the custom font and icon assets used in the design.
-
-### Structure (English)
-
-```text
-cv-latex/
-├── cv_lucas_vacquie.tex     ← layout (design, positioning) — rarely touched
-├── cv_banque_contenus.tex   ← content bank: every experience/project/
-│                               commitment I could put on the CV, as macros
-├── selection_classique.tex       ← content SELECTION for a given application
-│                               (which macros from the bank to show, and in
-│                               which order) — this is the file to edit
-├── cv_lucas_vacquie.pdf     ← compiled PDF (always up to date)
-├── Photos/                  ← personal photos used for the CV
-├── Oswald/                  ← custom font used in the design
-└── Pictogramme/             ← icons used in the design
-```
-
-### Adapting the CV to a specific job offer
-
-1. Duplicate `selection_classique.tex` into `selection_<company>.tex`.
-2. Inside, edit:
-   - `\Profil` — pick a variant from the bank (`\ProfilIngenierieSysteme`, `\ProfilEmbarqueLogiciel`, `\ProfilGeneraliste`) or write a custom paragraph.
-   - `\Competences` and `\OutilsLangages` — lists of `\item`s; pick from the reserve at the end of `cv_banque_contenus.tex` or add your own.
-   - `\SelectionExperience`, `\SelectionAssociatif`, `\SelectionProjets` — which items from `cv_banque_contenus.tex` to display, and in what order.
-3. In `cv_lucas_vacquie.tex`, change the single line:
-
-   ```latex
-   \input{selection_classique.tex}
-   ```
-
-   to point to the new selection file.
-4. Recompile and check the page still fits (the background height is fixed, so adding/removing items can under- or overflow the page).
-
-The layout file itself should not need to change between applications — only the selection file does.
-
-### Build it yourself
-
-```bash
-xelatex cv_lucas_vacquie.tex
-```
-
-(Requires a LaTeX distribution such as TeX Live or MacTeX.)
-
-### Why LaTeX?
-
-Full control over layout, consistent typography, and version-controlled updates — no fighting with a Word template every time I need to update a line, and no risk of breaking the design when I only want to swap out content for a new application.
-
----
-
 ## Français
 
 📄 **[Télécharger le PDF](cv_lucas_vacquie.pdf)**
@@ -108,8 +54,62 @@ Le fichier de mise en page ne devrait pas avoir besoin de changer entre deux can
 xelatex cv_lucas_vacquie.tex
 ```
 
-(Nécessite une distribution LaTeX comme TeX Live ou MacTeX.)
+(Nécessite une distribution LaTeX comme TeX Live, MiKTeX ou MacTeX.)
 
 ### Pourquoi LaTeX ?
 
 Un contrôle total sur la mise en page, une typographie cohérente, et un suivi de version propre — plus besoin de lutter avec un template Word à chaque mise à jour, et aucun risque de casser le design en voulant simplement changer de contenu pour une nouvelle candidature.
+
+---
+
+## English
+
+📄 **[Download the PDF](cv_lucas_vacquie.pdf)**
+
+This repository contains the LaTeX source for my CV, along with the custom font and icon assets used in the design.
+
+### Structure (English)
+
+```text
+cv-latex/
+├── cv_lucas_vacquie.tex     ← layout (design, positioning) — rarely touched
+├── cv_banque_contenus.tex   ← content bank: every experience/project/
+│                               commitment I could put on the CV, as macros
+├── selection_classique.tex       ← content SELECTION for a given application
+│                               (which macros from the bank to show, and in
+│                               which order) — this is the file to edit
+├── cv_lucas_vacquie.pdf     ← compiled PDF (always up to date)
+├── Photos/                  ← personal photos used for the CV
+├── Oswald/                  ← custom font used in the design
+└── Pictogramme/             ← icons used in the design
+```
+
+### Adapting the CV to a specific job offer
+
+1. Duplicate `selection_classique.tex` into `selection_<company>.tex`.
+2. Inside, edit:
+   - `\Profil` — pick a variant from the bank (`\ProfilIngenierieSysteme`, `\ProfilEmbarqueLogiciel`, `\ProfilGeneraliste`) or write a custom paragraph.
+   - `\Competences` and `\OutilsLangages` — lists of `\item`s; pick from the reserve at the end of `cv_banque_contenus.tex` or add your own.
+   - `\SelectionExperience`, `\SelectionAssociatif`, `\SelectionProjets` — which items from `cv_banque_contenus.tex` to display, and in what order.
+3. In `cv_lucas_vacquie.tex`, change the single line:
+
+   ```latex
+   \input{selection_classique.tex}
+   ```
+
+   to point to the new selection file.
+4. Recompile and check the page still fits (the background height is fixed, so adding/removing items can under- or overflow the page).
+
+The layout file itself should not need to change between applications — only the selection file does.
+
+### Build it yourself
+
+```bash
+xelatex cv_lucas_vacquie.tex
+```
+
+(Requires a LaTeX distribution such as TeX Live, MiKTeX or MacTeX.)
+
+### Why LaTeX?
+
+Full control over layout, consistent typography, and version-controlled updates — no fighting with a Word template every time I need to update a line, and no risk of breaking the design when I only want to swap out content for a new application.
